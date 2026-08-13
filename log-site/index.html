@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Log</title>
-  <meta name="description" content="A running log of notes, updates and thoughts." />
+  <title>Green Farm Logs</title>
+  <meta name="description" content="Field notes, farm updates, visits and enquiries — Green Farm Logs." />
 
-  <!-- Raleway font (loaded from Google Fonts; falls back to system fonts offline) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700;800&display=swap" rel="stylesheet" />
@@ -14,41 +13,194 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <a class="skip-link" href="#log">Skip to entries</a>
+  <a class="skip-link" href="#log">Skip to the log</a>
 
+  <!-- ============ Header ============ -->
   <header class="site-header">
     <div class="wrap header-inner">
-      <div class="brand">
-        <span class="brand-mark" aria-hidden="true">✦</span>
-        <div>
-          <h1 class="site-title">The Log</h1>
-          <p class="site-tagline">Notes, updates &amp; things worth remembering.</p>
-        </div>
-      </div>
-
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
-        <span class="theme-toggle-icon" aria-hidden="true">◐</span>
-      </button>
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">🌿</span>
+        <h1 class="site-title">Green Farm Logs</h1>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#log">The Log</a>
+        <a href="#book" class="cta">Book a visit</a>
+        <a href="#contact">Contact</a>
+        <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle dark mode">
+          <span aria-hidden="true">◐</span>
+        </button>
+      </nav>
     </div>
   </header>
 
-  <main class="wrap" id="log">
-    <div class="toolbar">
-      <label class="search">
-        <span class="search-icon" aria-hidden="true">⌕</span>
-        <input id="search" type="search" placeholder="Search the log…" aria-label="Search entries" />
-      </label>
-      <div id="tag-filters" class="tag-filters" aria-label="Filter by tag"></div>
+  <span id="top"></span>
+
+  <!-- ============ Hero ============ -->
+  <div class="hero">
+    <div class="wrap hero-inner">
+      <h2>Notes from the field.</h2>
+      <p>A running log of what’s happening on the farm — sowing, harvest, livestock and the weather that shapes it all. Come visit, or get in touch below.</p>
+      <div class="hero-actions">
+        <a href="#log" class="btn btn-primary">Read the log</a>
+        <a href="#book" class="btn btn-ghost">Book a visit</a>
+      </div>
     </div>
+    <!-- CSS-only rolling hills, no external images needed -->
+    <svg class="hills" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="var(--accent-soft)" d="M0,120 C240,60 480,150 720,110 C960,70 1200,150 1440,100 L1440,180 L0,180 Z" />
+      <path fill="var(--accent)" opacity="0.25" d="M0,150 C300,110 540,175 780,140 C1020,105 1230,170 1440,140 L1440,180 L0,180 Z" />
+    </svg>
+  </div>
 
-    <ol id="entries" class="entries" aria-live="polite"></ol>
+  <main class="wrap">
+    <!-- ============ The Log ============ -->
+    <section id="log">
+      <div class="section-head">
+        <span class="section-kicker">Field notes</span>
+        <h2 class="section-title">The Log</h2>
+        <p class="section-intro">The latest from around the farm — newest first.</p>
+      </div>
 
-    <p id="empty" class="empty" hidden>No entries match your search.</p>
+      <div class="toolbar">
+        <label class="search">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input id="search" type="search" placeholder="Search the log…" aria-label="Search entries" />
+        </label>
+        <div id="tag-filters" class="tag-filters" aria-label="Filter by tag"></div>
+      </div>
+
+      <ol id="entries" class="entries" aria-live="polite"></ol>
+      <p id="empty" class="empty" hidden>No entries match your search.</p>
+    </section>
+
+    <!-- ============ Book a visit ============ -->
+    <section id="book">
+      <div class="section-head">
+        <span class="section-kicker">Visits &amp; bookings</span>
+        <h2 class="section-title">Book a visit</h2>
+        <p class="section-intro">Tell us when you’d like to come and how many. We’ll confirm by email. A deposit may be requested for larger groups.</p>
+      </div>
+
+      <div class="panel">
+        <!-- Netlify Forms: detected at deploy via these attributes. -->
+        <form id="booking-form" name="booking" method="POST"
+              data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="booking" />
+          <p class="hp">
+            <label>Don’t fill this in if you’re human: <input name="bot-field" /></label>
+          </p>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="b-name">Name <span class="req">*</span></label>
+              <input id="b-name" name="name" type="text" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="b-email">Email <span class="req">*</span></label>
+              <input id="b-email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="b-date">Preferred date <span class="req">*</span></label>
+              <input id="b-date" name="preferred_date" type="date" required />
+            </div>
+            <div class="field">
+              <label for="b-people">Number of people</label>
+              <input id="b-people" name="party_size" type="number" min="1" value="2" />
+            </div>
+            <div class="field full">
+              <label for="b-type">What are you visiting for?</label>
+              <select id="b-type" name="visit_type">
+                <option>Farm tour</option>
+                <option>School / group visit</option>
+                <option>Produce collection</option>
+                <option>Other (tell us below)</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label for="b-notes">Anything else?</label>
+              <textarea id="b-notes" name="notes" placeholder="Access needs, questions, timings…"></textarea>
+            </div>
+          </div>
+
+          <div class="form-foot">
+            <button type="submit" class="btn btn-primary">Request booking</button>
+            <p class="form-note">We’ll never share your details. Powered by Netlify Forms.</p>
+          </div>
+          <div class="form-status" id="booking-status" role="status" hidden></div>
+        </form>
+
+        <!-- Stripe deposit — placeholder. Replace the button href with a Stripe
+             Payment Link when you're ready (see README). No keys live here. -->
+        <div class="deposit-box">
+          <div>
+            <div class="label">Pay a booking deposit</div>
+            <p class="hint">Optional — for larger groups. Wire up your Stripe Payment Link to enable this.</p>
+          </div>
+          <a class="btn btn-ghost" id="deposit-btn"
+             href="#"
+             data-stripe-link=""
+             aria-disabled="true">Pay deposit (coming soon)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ Contact ============ -->
+    <section id="contact">
+      <div class="section-head">
+        <span class="section-kicker">Get in touch</span>
+        <h2 class="section-title">Contact</h2>
+        <p class="section-intro">Questions about produce, visits or anything else — drop us a line.</p>
+      </div>
+
+      <div class="panel">
+        <form id="contact-form" name="contact" method="POST"
+              data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hp">
+            <label>Don’t fill this in if you’re human: <input name="bot-field" /></label>
+          </p>
+          <div class="form-grid">
+            <div class="field">
+              <label for="c-name">Name <span class="req">*</span></label>
+              <input id="c-name" name="name" type="text" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="c-email">Email <span class="req">*</span></label>
+              <input id="c-email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="field full">
+              <label for="c-message">Message <span class="req">*</span></label>
+              <textarea id="c-message" name="message" required placeholder="How can we help?"></textarea>
+            </div>
+          </div>
+          <div class="form-foot">
+            <button type="submit" class="btn btn-primary">Send message</button>
+            <p class="form-note">We usually reply within a day or two.</p>
+          </div>
+          <div class="form-status" id="contact-status" role="status" hidden></div>
+        </form>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Email</h3>
+          <a href="mailto:hello@greenfarmlogs.example">hello@greenfarmlogs.example</a>
+        </div>
+        <div class="contact-card">
+          <h3>Find us</h3>
+          <p style="margin:0;color:var(--text-soft)">Add your farm address here.</p>
+        </div>
+        <div class="contact-card">
+          <h3>Opening times</h3>
+          <p style="margin:0;color:var(--text-soft)">Add your hours here.</p>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>Built with plain HTML, CSS &amp; JS · Hosted free on GitHub Pages</p>
+      <p>© <span id="year"></span> Green Farm Logs · Built with plain HTML, CSS &amp; JS · Hosted on Netlify</p>
     </div>
   </footer>
 

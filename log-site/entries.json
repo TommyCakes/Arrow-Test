@@ -1,20 +1,34 @@
 [
   {
-    "date": "2026-08-13",
-    "title": "Moved the log off Carrd",
-    "body": "Rebuilt the site from scratch as plain HTML, CSS and JavaScript — no more subscription, full control over the design.\n\nNext step: point a custom domain at it. See the [GitHub Pages docs](https://docs.github.com/pages) for how.",
+    "date": "2026-08-12",
+    "title": "Second cut silage is in",
+    "field": "Top Meadow",
+    "weather": "Dry, 23°C",
+    "body": "Got the second cut baled and wrapped before the forecast turned. Yield looked strong after the July rain — the reseed two years ago is really paying off.\n\nBig thanks to everyone who lent a hand with the wrapping.",
+    "tags": ["silage", "machinery"]
+  },
+  {
+    "date": "2026-08-05",
+    "title": "Ewes moved to the fresh paddock",
+    "field": "Church Field",
+    "weather": "Overcast, 18°C",
+    "body": "Rotated the flock onto fresh grazing. All counted and sound. Trimmed a couple of feet while we had them in the pen.",
+    "tags": ["livestock", "sheep"]
+  },
+  {
+    "date": "2026-07-28",
+    "title": "First earlies lifted",
+    "field": "Kitchen Plot",
+    "weather": "Sunny, 26°C",
+    "body": "First of the potatoes out of the ground and they’re cracking. A few boxes are already spoken for — email us if you’d like some while they last.\n\nCarrots and beetroot not far behind.",
+    "tags": ["harvest", "produce"]
+  },
+  {
+    "date": "2026-07-15",
+    "title": "New season, new website",
+    "field": "The Farmhouse",
+    "weather": "Warm, 24°C",
+    "body": "We’ve moved the farm log off its old home and rebuilt it from scratch. Same updates, faster site, and now you can **book a visit** or **get in touch** right here.\n\nHave a look around — and drop us a line if anything’s not working.",
     "tags": ["meta", "site"]
-  },
-  {
-    "date": "2026-08-01",
-    "title": "August plans",
-    "body": "A few things I want to get through this month:\n\n- Finish reading the pile on my desk\n- Ship the thing\n- Actually **rest** for a weekend",
-    "tags": ["notes"]
-  },
-  {
-    "date": "2026-07-19",
-    "title": "First entry",
-    "body": "This is a sample entry so you can see how the log looks. To add your own, open *entries.json* and copy one of these blocks. Newest entries automatically sort to the top by their date.",
-    "tags": ["notes", "meta"]
   }
 ]

@@ -1,0 +1,16 @@
+# Netlify configuration for Green Farm Logs.
+# The site is plain static files, so there's nothing to build.
+
+[build]
+  # Publish this folder as-is. If you move these files to the repo root,
+  # change publish to "." instead.
+  publish = "log-site"
+  command = ""
+
+# Netlify Forms are detected automatically from the HTML at deploy time.
+# No extra config needed for the "booking" and "contact" forms.
+
+# When you add Stripe Checkout (dynamic amounts) later, uncomment and create
+# a serverless function at log-site/netlify/functions/create-checkout.js:
+# [functions]
+#   directory = "log-site/netlify/functions"
