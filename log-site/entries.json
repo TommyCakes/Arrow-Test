@@ -1,0 +1,20 @@
+[
+  {
+    "date": "2026-08-13",
+    "title": "Moved the log off Carrd",
+    "body": "Rebuilt the site from scratch as plain HTML, CSS and JavaScript — no more subscription, full control over the design.\n\nNext step: point a custom domain at it. See the [GitHub Pages docs](https://docs.github.com/pages) for how.",
+    "tags": ["meta", "site"]
+  },
+  {
+    "date": "2026-08-01",
+    "title": "August plans",
+    "body": "A few things I want to get through this month:\n\n- Finish reading the pile on my desk\n- Ship the thing\n- Actually **rest** for a weekend",
+    "tags": ["notes"]
+  },
+  {
+    "date": "2026-07-19",
+    "title": "First entry",
+    "body": "This is a sample entry so you can see how the log looks. To add your own, open *entries.json* and copy one of these blocks. Newest entries automatically sort to the top by their date.",
+    "tags": ["notes", "meta"]
+  }
+]
